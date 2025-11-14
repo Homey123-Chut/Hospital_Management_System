@@ -318,7 +318,7 @@ class Admin extends Staff {
     if (currentHospital != null) {
       extra += '\nManaging Hospital: ${currentHospital!.hospitalName}';
     }
-    // preserve previous behavior of printing additional info
+    
     print(extra);
     return '$baseInfo\n$extra';
   }

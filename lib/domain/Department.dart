@@ -11,12 +11,10 @@ class Department {
     List<Staff>? staffList,
   }) : staffList = staffList ?? [];
 
-  /// Add staff to the department (no I/O here)
   void addStaff(Staff staff) {
     staffList.add(staff);
   }
 
-  /// Return a formatted staff list string for UI to print
   String listStaff() {
     final buffer = StringBuffer();
     buffer.writeln('\n=== Staff List for $departmentName Department ===');

@@ -3,9 +3,8 @@ import '../domain/Hospital.dart';
 import '../domain/Role.dart';
 import '../domain/Staff.dart';
 
-/// Service that builds hospital data and provides search helpers.
 class HospitalService {
-  /// Create a demo hospital with 5 departments and 5 staff members.
+
   Hospital createDemoHospital() {
     Hospital centralHospital = Hospital(
       hospitalName: 'Central City Hospital',
@@ -149,7 +148,6 @@ class HospitalService {
     return centralHospital;
   }
 
-  /// Search staff by ID across the hospital. Returns the staff and its department name, or null.
   Map<String, dynamic>? findStaffById(Hospital hospital, int id) {
     for (var dept in hospital.departments) {
       var s = dept.findStaffById(id);
@@ -160,7 +158,6 @@ class HospitalService {
     return null;
   }
 
-  /// Search staff by name (substring, case-insensitive)
   List<Map<String, dynamic>> findStaffByName(Hospital hospital, String nameSubstr) {
     List<Map<String, dynamic>> results = [];
     final q = nameSubstr.toLowerCase();
@@ -174,7 +171,6 @@ class HospitalService {
     return results;
   }
 
-  /// Search staff by role title substring (case-insensitive)
   List<Map<String, dynamic>> findStaffByRole(Hospital hospital, String roleSubstr) {
     List<Map<String, dynamic>> results = [];
     final q = roleSubstr.toLowerCase();

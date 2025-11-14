@@ -5,7 +5,6 @@ import 'domain/Department.dart';
 import 'domain/Hospital.dart';
 import 'domain/Admin.dart';
 
-// Pre-defined roles for each department
 Map<String, List<String>> departmentRoles = {
   'Administrative': ['Administrator', 'Receptionist', 'HR Manager', 'Accountant'],
   'Pharmacy': ['Pharmacist', 'Pharmacy Technician', 'Pharmacy Assistant'],
@@ -19,14 +18,12 @@ void main() async {
   print('   Hospital Management System');
   print('========================================\n');
 
-  // Create admin role
   Role adminRole = Role(
     roleId: 001,
     title: 'System Administrator',
     description: 'Manages hospital operations and staff',
   );
 
-  // Create an admin user
   Admin admin = Admin(
     id: 1,
     name: 'Homey',
@@ -41,7 +38,6 @@ void main() async {
 
   print('Welcome, ${admin.name}!\n');
 
-  // Main menu loop
   bool running = true;
   while (running) {
     print('\n========== Main Menu ==========');
@@ -60,7 +56,7 @@ void main() async {
     String? input = stdin.readLineSync();
     int? choice = int.tryParse(input ?? '');
 
-    print(''); // Add blank line for readability
+    print(''); 
 
     switch (choice) {
       case 1:
@@ -120,7 +116,6 @@ void main() async {
   }
 }
 
-// Search staff by ID, name, or role
 void searchStaffByRole(Admin admin) {
   if (admin.currentHospital == null) {
     print('Error: No hospital available. Create a hospital first.');
@@ -153,7 +148,6 @@ void searchStaffByRole(Admin admin) {
     return;
   }
   
-  // Get search term based on type
   String searchPrompt = '';
   switch (searchType) {
     case 1:
@@ -177,8 +171,7 @@ void searchStaffByRole(Admin admin) {
 
   String searchTerm = searchInput.trim().toLowerCase();
   int? searchId = int.tryParse(searchInput.trim());
-  
-  // Search for staff based on selected type
+ 
   List<Map<String, dynamic>> matchingStaff = [];
   
   for (var dept in admin.currentHospital!.departments) {
@@ -244,7 +237,7 @@ void searchStaffByRole(Admin admin) {
   }
 }
 
-// Create hospital with 5 pre-defined departments
+
 void createHospitalWithDepartments(Admin admin) {
   print('\n--- Create New Hospital ---');
   stdout.write('Enter hospital name: ');
@@ -259,8 +252,8 @@ void createHospitalWithDepartments(Admin admin) {
     );
     admin.currentHospital = hospital;
     print('\nHospital "$name" created successfully!');
-    
-    // Create 5 pre-defined departments
+
+
     print('\nCreating 5 departments...');
     
     Department administrative = Department(
@@ -300,7 +293,6 @@ void createHospitalWithDepartments(Admin admin) {
   }
 }
 
-// Add staff with simplified process (no role selection)
 void addStaffWithRoleChoice(Admin admin) {
   if (admin.currentHospital == null) {
     print('Error: No hospital selected. Create a hospital first.');
@@ -313,8 +305,7 @@ void addStaffWithRoleChoice(Admin admin) {
   }
 
   print('\n--- Add New Staff ---');
-  
-  // Display available departments
+
   print('Available Departments:');
   for (int i = 0; i < admin.currentHospital!.departments.length; i++) {
     print('${i + 1}. ${admin.currentHospital!.departments[i].departmentName}');
@@ -333,7 +324,6 @@ void addStaffWithRoleChoice(Admin admin) {
 
   print('\nAdding staff to $deptName department...\n');
 
-  // Get staff details
   stdout.write('Enter staff ID: ');
   int? id = int.tryParse(stdin.readLineSync() ?? '');
   stdout.write('Enter name: ');

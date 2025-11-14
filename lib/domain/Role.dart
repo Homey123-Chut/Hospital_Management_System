@@ -1,9 +1,8 @@
-/// Class representing a role within a department
 class Role {
   int roleId;
   String title;
   String description;
-  dynamic department; // Associated department (using dynamic to avoid circular dependency)
+  dynamic department; 
 
   Role({
     required this.roleId,
@@ -12,7 +11,6 @@ class Role {
     this.department,
   });
 
-  /// Display role information
   String displayRoleInfo() {
     final buffer = StringBuffer();
     buffer.writeln('Role: $title');

@@ -18,7 +18,6 @@ class Person {
     required this.address,
   });
 
-  /// Return a formatted string of person information (no I/O)
   String displayInfo() {
     final buffer = StringBuffer();
     buffer.writeln('--- Person Information ---');

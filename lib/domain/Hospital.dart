@@ -1,6 +1,5 @@
 import 'Department.dart';
 
-/// Class representing a hospital
 class Hospital {
   String hospitalName;
   String hospitalAddress;
@@ -12,12 +11,10 @@ class Hospital {
     List<Department>? departments,
   }) : departments = departments ?? [];
 
-  /// Add a department to the hospital
   void addDepartment(Department dept) {
     departments.add(dept);
   }
 
-  /// List all departments in the hospital
   String listDepartments() {
     final buffer = StringBuffer();
     buffer.writeln('\n========== Departments at $hospitalName ==========');
@@ -33,7 +30,6 @@ class Hospital {
     return buffer.toString();
   }
 
-  /// List all staff across all departments
   String listAllStaff() {
     final buffer = StringBuffer();
     buffer.writeln('\n========== All Staff at $hospitalName ==========');
@@ -61,7 +57,6 @@ class Hospital {
     return buffer.toString();
   }
 
-  /// Find a department by ID
   Department? findDepartmentById(int deptId) {
     try {
       return departments.firstWhere((dept) => dept.departmentId == deptId);
@@ -70,7 +65,6 @@ class Hospital {
     }
   }
 
-  /// Remove a department from the hospital
   bool removeDepartment(int deptId) {
     int initialLength = departments.length;
     departments.removeWhere((dept) => dept.departmentId == deptId);

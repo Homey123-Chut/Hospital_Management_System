@@ -21,7 +21,6 @@ class Staff extends Person {
     return salary;
   }
 
-  // AI Generated
   void setSalary(double newSalary) {
     if (newSalary >= 0) {
       salary = newSalary;
@@ -30,12 +29,10 @@ class Staff extends Person {
     }
   }
 
-  /// Get the staff member's role title
   String getRole() {
     return role.title;
   }
 
-  /// Perform a task based on the staff member's role
   void performTask() {
     print('$name is performing task as ${role.title}');
   }
